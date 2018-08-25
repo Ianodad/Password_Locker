@@ -59,6 +59,31 @@ class TestUser(unittest.TestCase):
         self.new_user.delete_user()  # Deleting obeject of the new user
         self.assertEqual(len(User.user_list), 1)
 
+    def test_find_user_exist(self):
+
+        self.new_user.add_user()
+        new_user_test = User('John', 'Doe', 'johndoe', '0712000000', 'johndoe@gmail.com', 'johndoe254')
+  # new contact
+        new_user_test.add_user()
+
+        user_exists = User.find_user_exist("johndoe")
+
+        self.assertTrue(user_exists)
+    
+    # def test_user_by_username(self):
+    #     '''
+    #     test to check if we can find a contact by phone number and display information
+    #     '''
+
+    #     self.new_user.save_contact()
+    #     test_contact = Contact("Test", "user", "0711223344",
+    #                            "test@user.com")  # new contact
+    #     test_contact.save_contact()
+
+    #     found_contact = Contact.find_by_number("0711223344")
+
+    #     self.assertEqual(found_contact.email, test_contact.email)
+
 
 if __name__ == '__main__':
     unittest.main()

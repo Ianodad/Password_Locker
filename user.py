@@ -22,6 +22,33 @@ class User:
     def delete_user(self):
 
         User.user_list.remove(self)
+
+    
+    @classmethod
+    def find_user_exist(cls, username):
+        '''
+        checks to find if user exsist in array
+        '''
+        for user in cls.user_list:
+            if user.username == username:
+                '''
+                condition to check through tthe loop
+                '''
+                return True
+                '''
+                if found return true
+                '''
+        return False
+    
+    # @classmethod
+    # def user_find_(cls, number):
+    #     '''
+    #     check its username exist
+    #     '''
+    #     for user in cls.user_list:
+    #         if user.phone_number == user:
+    #             return user
+
     
 
 # new_user = User('ian', 'Odhiambo', 'ianodad',
