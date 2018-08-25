@@ -1,3 +1,6 @@
+import base64
+
+
 class User:
 
     user_list = []
@@ -12,18 +15,22 @@ class User:
         self.password = password
 
     def add_user(self):
-
         '''
         add new user
 
         '''
         User.user_list.append(self)
-    
+
     def delete_user(self):
 
         User.user_list.remove(self)
 
-    
+    def encode_Password(self):
+        self.password = base64.b64encode(self.password)
+
+    def decode_Password(self):
+        self.password = base64.b64decode(self.password)
+
     @classmethod
     def find_user_exist(cls, username):
         '''
@@ -39,20 +46,16 @@ class User:
                 if found return true
                 '''
         return False
-    
-    # @classmethod
-    # def user_find_(cls, number):
-    #     '''
-    #     check its username exist
-    #     '''
-    #     for user in cls.user_list:
-    #         if user.phone_number == user:
-    #             return user
 
-    
+    @classmethod
+    def find_username(cls, username):
+        '''
+        check its username exist trough 
+        '''
+        for user in cls.user_list:
+            if user.username == username:
+                return user
+
 
 # new_user = User('ian', 'Odhiambo', 'ianodad',
 #                 '0712724144', 'ianodad@gmail.com', 'Pytoncode1')
-
-
-
