@@ -40,13 +40,24 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list), 1)
 
     def test_save_multiple_users(self):
-            '''
-            test_save_multiple_user to save multiple contacts
-            '''
-            self.new_user.add_user()
-            new_user_test = User('John', 'Doe', 'johndoe', '0712000000', 'johndoe@gmail.com', 'johndoe254')
-            new_user_test.add_user()
-            self.assertEqual(len(User.user_list), 2)
+        '''
+        test_save_multiple_user to save multiple contacts
+        '''
+        self.new_user.add_user()
+        new_user_test = User('John', 'Doe', 'johndoe', '0712000000', 'johndoe@gmail.com', 'johndoe254')
+        new_user_test.add_user()
+        self.assertEqual(len(User.user_list), 2)
+
+
+    def test_delete_contact(self):
+        ''' 
+        This here is the to test is we can remove obbejct from list
+        '''
+        self.new_user.add_user()
+        new_user_test = User('John', 'Doe', 'johndoe', '0712000000', 'johndoe@gmail.com', 'johndoe254')
+        new_user_test.add_user()
+        self.new_user.delete_user()  # Deleting obeject of the new user
+        self.assertEqual(len(User.user_list), 1)
 
 
 if __name__ == '__main__':
