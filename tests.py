@@ -148,6 +148,26 @@ class TestAccount(unittest.TestCase):
         new_account_test.add_account()
         self.assertEqual(len(Credi.account_list), 2)
 
+    def test_delete_account(self):
+        ''' 
+        This here is the to test is we can remove obbejct from list
+        '''
+        self.new_account.add_account()
+        new_account_test = Credi('Instagram', 'malcom', 'gram')
+        new_account_test.add_account()
+        self.new_account.delete_account()  # Deleting obeject of the new user
+        self.assertEqual(len(Credi.account_list), 1)
+
+    # def test_find_account_exist(self):
+
+    #     self.new_account.add_account()
+    #     new_account_test = Credi('Instagram', 'malcom', 'gram')
+    #     new_account_test.add_account()
+
+    #     account_exists = Credi.find_account_exist("johndoe")
+
+    #     self.assertTrue(account_exists)
+
 
 if __name__ == '__main__':
     unittest.main()
