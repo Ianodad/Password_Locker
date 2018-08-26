@@ -3,6 +3,7 @@ we begin by import unittest and User form user.py
 '''
 import unittest
 from user import User
+from credi import Credi
 
 
 class TestUser(unittest.TestCase):
@@ -95,13 +96,42 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(User.display_user(), User.user_list)
 
-    def test_encode_password(self):
+    # def test_encode_password(self):
+    #     '''
+    #     method to test enodeing of user pass word
+    #     '''
+    #     self.new_user.add_user()
+
+    #     new_user_test = User('John', 'Doe', 'johndoe', '0712000000',
+    #                          'johndoe@gmail.com', 'johndoe254')
+    #     new_user_test.add_user()
+
+    #     encoded = User.encode("johndoe")
+    #     self.assertIsNot(encoded.password, new_user_test.password)
+
+
+class TestAccount:
+
+    def setUp(self):
         '''
-        method to test enodeing of user pass word
+        set up method test
         '''
-        self.new_user.add_user()
-        encoded = User.encode(new_user.username)
-        self.assertIsNot(encoded.password, new_user.password)
+        self.new_account = Credi('twitter', 'ianodad', 'rettiwt')
+
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        Credi.account_list = []
+
+    def test_init(self):
+        '''
+        intiating test for users
+
+        '''
+        self.assertEqual(self.new_account.account, "twitter")
+        self.assertEqual(self.new_account.username, "ianodad")
+        self.assertEqual(self.new_account.phone_number, "rettiwt")
 
 
 if __name__ == '__main__':
