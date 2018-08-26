@@ -42,3 +42,10 @@ class Credi:
         for account in cls.account_list:
             if account.username == username and account.password == password:
                 return account
+
+    @classmethod
+    def display_accounts(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.account_list

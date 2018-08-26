@@ -184,6 +184,13 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(account_exists.account,
                          new_account_test.account)
 
+    def test_display_all_accounts(self):
+        '''
+        method that returns a list of all accounts
+        '''
+
+        self.assertEqual(Credi.display_accounts(), Credi.account_list)
+
 
 if __name__ == '__main__':
     unittest.main()
