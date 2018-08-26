@@ -88,6 +88,21 @@ class TestUser(unittest.TestCase):
         '''
         self.assertEqual(user_found.phone_number, new_user_test.phone_number)
 
+    def test_display_all_users(self):
+        '''
+        method that returns a list of all contacts saved
+        '''
+
+        self.assertEqual(User.display_user(), User.user_list)
+
+    def test_encode_password(self):
+        '''
+        method to test enodeing of user pass word
+        '''
+        self.new_user.add_user()
+        encoded = User.encode(new_user.username)
+        self.assertIsNot(encoded.password, new_user.password)
+
 
 if __name__ == '__main__':
     unittest.main()

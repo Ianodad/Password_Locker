@@ -25,9 +25,6 @@ class User:
 
         User.user_list.remove(self)
 
-    def encode_Password(self):
-        self.password = base64.b64encode(self.password)
-
     def decode_Password(self):
         self.password = base64.b64decode(self.password)
 
@@ -56,6 +53,20 @@ class User:
             if user.username == username:
                 return user
 
+    @classmethod
+    def display_user(cls):
+        '''
+        method that returns user info
+        '''
+        return cls.user_list
 
-# new_user = User('ian', 'Odhiambo', 'ianodad',
-#                 '0712724144', 'ianodad@gmail.com', 'Pytoncode1')
+    @classmethod
+    '''
+    using base64 to encode user password
+    '''
+    
+    def encode(cls, username):
+      for user in cls.user_list:
+        if user.username == username:
+          user.password = base64.b64encode(user.password)
+          return(user.password)
