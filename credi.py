@@ -19,12 +19,12 @@ class Credi:
         Credi.account_list.remove(self)
 
     @classmethod
-    def find_account_exist(cls, username):
+    def find_account_exist(cls, username, password):
         '''
         checks to find password
         '''
         for account in cls.account_list:
-            if account.username == username:
+            if account.username == username and account.password:
                 '''
                 condition to check through tthe loop
                 '''
@@ -35,10 +35,10 @@ class Credi:
         return False
 
     @classmethod
-    def find_account(cls, username):
+    def find_account(cls, username, password):
         '''
        returning account 
         '''
         for account in cls.account_list:
-            if account.username == username:
+            if account.username == username and account.password == password:
                 return account

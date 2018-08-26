@@ -164,9 +164,25 @@ class TestAccount(unittest.TestCase):
         new_account_test = Credi('Instagram', 'malcom', 'gram')
         new_account_test.add_account()
 
-        account_exists = Credi.find_account_exist("malcom")
+        account_exists = Credi.find_account_exist("malcom", "gram")
 
         self.assertTrue(account_exists)
+
+    def test_user_by_username(self):
+        '''
+        test to check if we can find a user by username
+        '''
+
+        self.new_account.add_account()
+        new_account_test = Credi('Instagram', 'malcom', 'gram')
+        new_account_test.add_account()
+
+        account_exists = Credi.find_account("malcom", 'gram')
+        '''
+        we set assertEqual to compare the instance of password
+        '''
+        self.assertEqual(account_exists.account,
+                         new_account_test.account)
 
 
 if __name__ == '__main__':
