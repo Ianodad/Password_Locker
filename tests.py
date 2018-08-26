@@ -110,7 +110,7 @@ class TestUser(unittest.TestCase):
     #     self.assertIsNot(encoded.password, new_user_test.password)
 
 
-class TestAccount:
+class TestAccount(unittest.TestCase):
 
     def setUp(self):
         '''
@@ -118,20 +118,35 @@ class TestAccount:
         '''
         self.new_account = Credi('twitter', 'ianodad', 'rettiwt')
 
+    def test_init(self):
+        '''
+        intiating test for users
+        '''
+        self.assertEqual(self.new_account.account, "twitter")
+        self.assertEqual(self.new_account.username, "ianodad")
+        self.assertEqual(self.new_account.password, "rettiwt")
+
+    def test_add_account(self):
+        '''
+        test_add account
+        '''
+        self.new_account.add_account()  # saving the new contact
+        self.assertEqual(len(Credi.account_list), 1)
+
     def tearDown(self):
         '''
         tearDown method that does clean up after each test case has run.
         '''
         Credi.account_list = []
 
-    def test_init(self):
+    def test_save_multiple_users(self):
         '''
-        intiating test for users
-
+        test_save_multiple_account 
         '''
-        self.assertEqual(self.new_account.account, "twitter")
-        self.assertEqual(self.new_account.username, "ianodad")
-        self.assertEqual(self.new_account.phone_number, "rettiwt")
+        self.new_account.add_account()
+        new_account_test = Credi('Instagram', 'malcom', 'gram')
+        new_account_test.add_account()
+        self.assertEqual(len(Credi.account_list), 2)
 
 
 if __name__ == '__main__':

@@ -1,19 +1,19 @@
 class Credi:
 
-    account_list =[]
+    account_list = []
 
-    def __init__(self, account ,username, password):
-        
+    def __init__(self, account, username, password):
+
         self.account = account
         self.username = username
         self.password = password
-    
+
     def add_account(self):
         '''
         add new user
         '''
         Credi.account_list.append(self)
-    
+
     def delete_account(self):
 
         Credi.account_list.remove(self)
