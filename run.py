@@ -1,9 +1,11 @@
 from user import User
 from credi import Credi
 
-'''
-User methods
-'''
+    '''
+    User methods
+    '''
+
+
 def create_new_user(name, second, username, phone, email)
     '''
     create new user
@@ -13,12 +15,12 @@ def create_new_user(name, second, username, phone, email)
 
 
 def add_new_user():
-    
     '''
     adding new user to array
     '''
 
     user.add_user()
+
 
 def remove_user():
     '''
@@ -26,17 +28,20 @@ def remove_user():
     '''
     user.delete_user()
 
+
 def user_exist(username):
     '''
     check account exist
     '''
-    return.User.find_user_exist(username)      
+    return.User.find_user_exist(username)
+
 
 def find_User(username):
     '''
     locate user in array
     '''
     return User.find_username(username)
+
 
 def dispaly_users():
     '''
@@ -48,6 +53,8 @@ def dispaly_users():
 '''
 METHOD FOR CALLING CREDINTIALS
 '''
+
+
 def create_new_account(account, username, password):
     '''
     create new account
@@ -55,13 +62,14 @@ def create_new_account(account, username, password):
     new_account = Credi(account, username, password)
     return new_account
 
-def add_account():
 
+def add_account():
     '''
     add account to list of others
     '''
 
     credi.add_account()
+
 
 def remove_account():
     '''
@@ -69,8 +77,30 @@ def remove_account():
     '''
     credi.delete_account()
 
-def 
+
+def account_exist():
+    '''
+    loop throuh list to check account already there
+    '''
+    return Credi.find_account_exist()
 
 
+def find_account():
+    '''
+    check if account and return
+    '''
 
+    return Credi.find_account()
+
+
+def display_account_info():
+    '''
+    check ti display
+    '''
+
+    return Credi.display_accounts()
+
+'''
+
+'''
 
