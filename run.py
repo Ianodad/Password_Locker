@@ -44,6 +44,10 @@ def dispaly_users():
     '''
     return User.display_user()
 
+
+'''
+METHOD FOR CALLING CREDINTIALS
+'''
 def create_new_account(account, username, password):
     '''
     create new account
@@ -51,6 +55,21 @@ def create_new_account(account, username, password):
     new_account = Credi(account, username, password)
     return new_account
 
+def add_account():
+
+    '''
+    add account to list of others
+    '''
+
+    credi.add_account()
+
+def remove_account():
+    '''
+    delete account from accounts
+    '''
+    credi.delete_account()
+
+def 
 
 
 
