@@ -32,6 +32,11 @@ def user_exist(username):
     '''
     return.User.find_user_exist(username)      
 
+def Find_User(username):
+    '''
+    locate user in array
+    '''
+    return User.find_username(username)
 
 
 def create_new_account(account, username, password):
