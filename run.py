@@ -1,12 +1,8 @@
 from user import User
 from credi import Credi
 
-    '''
-    User methods
-    '''
 
-
-def create_new_user(name, second, username, phone, email)
+def create_new_user(name, second, username, phone, email):
     '''
     create new user
     '''
@@ -33,7 +29,7 @@ def user_exist(username):
     '''
     check account exist
     '''
-    return.User.find_user_exist(username)
+    return User.find_user_exist(username)
 
 
 def find_User(username):
@@ -100,7 +96,11 @@ def display_account_info():
 
     return Credi.display_accounts()
 
-'''
 
 '''
+SHOW THE RUN
+'''
 
+
+def main():
+    
