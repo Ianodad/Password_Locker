@@ -32,12 +32,17 @@ def user_exist(username):
     '''
     return.User.find_user_exist(username)      
 
-def Find_User(username):
+def find_User(username):
     '''
     locate user in array
     '''
     return User.find_username(username)
 
+def dispaly_users():
+    '''
+    check to dislpay users
+    '''
+    return User.display_user()
 
 def create_new_account(account, username, password):
     '''
