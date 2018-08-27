@@ -13,9 +13,24 @@ def create_new_user(name, second, username, phone, email)
 
 
 def add_new_user():
-
+    
+    '''
+    adding new user to array
+    '''
 
     user.add_user()
+
+def remove_user():
+    '''
+    delete new user info
+    '''
+    user.delete_user()
+
+def user_exist(username):
+    '''
+    check account exist
+    '''
+    return.User.find_user_exist(username)      
 
 
 
