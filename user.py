@@ -70,7 +70,7 @@ class User:
                 return user.password
 
     @classmethod
-    def decode_Password(cls, username):
+    def decode(cls, username):
         for user in cls.user_list:
             if user.username == username:
                 user.password = base64.b64decode(user.password)
