@@ -1,5 +1,6 @@
 from user import User
 from credi import Credi
+import base64
 
 
 def create_new_user(name, second, username, phone, email, password):
@@ -102,7 +103,7 @@ Encode and decode password
 '''
 
 
-def encode(cls, password):
+def encode(password):
     '''
     using base64 to encode user password
     '''
@@ -142,22 +143,34 @@ def main():
         codeform = input().lower()
 
         if codeform == 'nc':
-            print("new User")
-            print('*'*10)
+            print("new User forms")
+            print('~'*20)
 
             print("First name....")
             name = input()
+            print('~'*20)
 
             print("last name ...")
             second = input()
+            print('~'*20)
 
-            while True:
+            print("user name ...")
+            username = input()
+            print('~'*20)
 
-                print("phone number ...")
-                username = input()
-                if user_exist(username):
-                    print("user already exist")
-                    break
+            print("phone ....")
+            phone = input()
+            print('~'*20)
+
+            print("email ... ")
+            email = input()
+            print('~'*20)
+
+            print("password ..")
+            password = input()
+            password = encode(password)
+
+            print(password)
         break
         # print ("Email address ...")
         # phone = input()
