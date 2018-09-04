@@ -11,7 +11,7 @@ def create_new_user(name, second, username, phone, email, password):
     return new_user
 
 
-def add_new_user():
+def add_new_user(user):
     '''
     adding new user to array
     '''
@@ -19,7 +19,7 @@ def add_new_user():
     user.add_user()
 
 
-def remove_user():
+def remove_user(user):
     '''
     delete new user info
     '''
@@ -45,6 +45,11 @@ def dispaly_users():
     check to dislpay users
     '''
     return User.display_user()
+
+
+def check_validation(username, password):
+
+    return User.check_password(username, password)
 
 
 '''
@@ -98,6 +103,11 @@ def display_account_info():
     return Credi.display_accounts()
 
 
+def check_validation():
+
+    return User.check_password()
+
+
 '''
 Encode and decode password
 '''
@@ -107,12 +117,12 @@ def encode(password):
     '''
     using base64 to encode user password
     '''
-    return base64.b64encode(password)
+    return base64.urlsafe_b64encode(password.encode('UTF-8')).decode('ascii')
 
 
-def decode(cls, username):
+def decode(password):
 
-    return base64.b64decode(password)
+    return base64.b64decode(b'password')
 
 
 '''
@@ -167,20 +177,49 @@ def main():
             print('~'*20)
 
             print("password ..")
-            password = input()
+            password = str(input())
             password = encode(password)
 
-            print(password)
-        break
+            print('checking authetication ...')
+            if user_exist(username):
+                print('l')
+                continue
+            else:
+                print("succeful added")
+
+            add_new_user(create_new_user(
+                name, second, username, phone, email, password))
+            print(f"New Use added {name} {second} created")
+
+            print('\n')
+
+        elif codeform == 'lu':
+
+            print('Enter user name')
+            user = input()
+
+            if user_exist(user):
+                continue
+            else:
+                print("whats next")
+
+            print('Please enter password')
+            password = input()        
+
+
+        #     while True:
+
+        # break
         # print ("Email address ...")
         # phone = input()
 
         # print ("email adress ...")
         # email = input()
 
-
         # print (" Password ...")
         # password = input()
+
+
 if __name__ == '__main__':
 
     main()

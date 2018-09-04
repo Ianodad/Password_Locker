@@ -66,7 +66,7 @@ class TestUser(unittest.TestCase):
         self.new_user.add_user()
         new_user_test = User('John', 'Doe', 'johndoe',
                              '0712000000', 'johndoe@gmail.com', 'johndoe254')
-  # new contact
+
         new_user_test.add_user()
 
         user_exists = User.find_user_exist("johndoe")
@@ -96,18 +96,19 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(User.display_user(), User.user_list)
 
-    # def test_encode_password(self):
-    #     '''
-    #     method to test enodeing of user pass word
-    #     '''
-    #     self.new_user.add_user()
+    def test_check_password(self):
+        '''
+        check for password exists
+        '''
+        self.new_user.add_user()
+        new_user_test = User('John', 'Doe', 'johndoe',
+                             '0712000000', 'johndoe@gmail.com', 'johndoe254')
 
-    #     new_user_test = User('John', 'Doe', 'johndoe', '0712000000',
-    #                          'johndoe@gmail.com', 'johndoe254')
-    #     new_user_test.add_user()
+        new_user_test.add_user()
 
-    #     encoded = User.encode("johndoe")
-    #     self.assertIsNot(encoded.password, new_user_test.password)
+        user_exists = User.check_password("johndoe", 'johndoe254')
+
+        self.assertTrue(user_exists)
 
 
 class TestAccount(unittest.TestCase):

@@ -25,8 +25,6 @@ class User:
 
         User.user_list.remove(self)
 
-
-
     @classmethod
     def find_user_exist(cls, username):
         '''
@@ -58,6 +56,14 @@ class User:
         method that returns user info
         '''
         return cls.user_list
+
+    @classmethod
+    def check_password(cls, username, password):
+
+        for user in cls.user_list:
+            if user.username == username and user.password == password:
+                return True
+        return False
 
     @classmethod
     def encode(cls, username):
