@@ -1,6 +1,8 @@
 from user import User
 from credi import Credi
 import base64
+import secrets
+import string
 
 
 def create_new_user(name, second, username, phone, email, password):
@@ -97,15 +99,17 @@ def find_account():
 
 def display_account_info():
     '''
-    check ti display
+    check the display
     '''
 
     return Credi.display_accounts()
 
 
-def check_validation():
+def gen_password():
+    alphabet = string.ascii_letters + string.digits
+    passw = ''.join(secrets.choice(alphabet) for i in range(20))
 
-    return User.check_password()
+    return passw
 
 
 '''
@@ -204,20 +208,41 @@ def main():
                 print("whats next")
 
             print('Please enter password')
-            password = input()        
+            password = input()
+            password = decode(password)
 
+            if check_validation(user, password):
+                print("auth ready go")
+                print("welcome to the where do you want to start")
 
-        #     while True:
+                while True:
+                    print('-'*50)
+                    print("create new account: ca")
+                    print('-'*50)
+                    print("check account details: cd")
+                    print('-'*50)
 
-        # break
-        # print ("Email address ...")
-        # phone = input()
+                    acode = input()
 
-        # print ("email adress ...")
-        # email = input()
+                    if acode == 'ca':
+                        print("next time")
 
-        # print (" Password ...")
-        # password = input()
+                    else:
+                        print("I really didn't get that. Please use the short codes")
+            else:
+                continue
+
+                #     while True:
+
+                # break
+                # print ("Email address ...")
+                # phone = input()
+
+                # print ("email adress ...")
+                # email = input()
+
+                # print (" Password ...")
+                # password = input()
 
 
 if __name__ == '__main__':
