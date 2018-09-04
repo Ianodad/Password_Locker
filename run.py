@@ -141,11 +141,11 @@ def main():
     print(' '*50)
     print('='*50)
 
-    # print("whats your name?")
+    print("whats your name?")
 
-    # user_name = input()
+    user_name = input()
 
-    # print(f"Where would you like to begin? {user_name}")
+    print(f"Where would you like to begin? {user_name}")
 
     while True:
         print('-'*50)
@@ -232,17 +232,7 @@ def main():
             else:
                 continue
 
-                #     while True:
-
-                # break
-                # print ("Email address ...")
-                # phone = input()
-
-                # print ("email adress ...")
-                # email = input()
-
-                # print (" Password ...")
-                # password = input()
+               
 
 
 if __name__ == '__main__':
