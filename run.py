@@ -50,6 +50,9 @@ def dispaly_users():
 
 
 def check_validation(username, password):
+    '''
+    check validation
+    '''
 
     return User.check_password(username, password)
 
@@ -106,15 +109,12 @@ def display_account_info():
 
 
 def gen_password():
+    '''
+    generate password the length of ten
+    '''
     alphabet = string.ascii_letters + string.digits
-    passw = ''.join(secrets.choice(alphabet) for i in range(20))
 
-    return passw
-
-
-'''
-Encode and decode password
-'''
+    return ''.join(secrets.choice(alphabet) for i in range(10))
 
 
 def encode(password):
@@ -125,14 +125,20 @@ def encode(password):
 
 
 def decode(password):
-
+    '''
+    decode password set by the encode function
+    '''
     return base64.b64decode(b'password')
 
 
-'''
-SHOW THE RUN
-'''
+def check_validation(username, password):
+    '''
+    check validation
+    '''
 
+    return User.check_password(username, password)
+
+# SHOW RUN
 
 def main():
     print('_'*50)
@@ -231,8 +237,6 @@ def main():
                         print("I really didn't get that. Please use the short codes")
             else:
                 continue
-
-               
 
 
 if __name__ == '__main__':

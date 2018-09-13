@@ -62,6 +62,9 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list), 1)
 
     def test_find_user_exist(self):
+        '''
+        test to find user in existing in the database
+        '''
 
         self.new_user.add_user()
         new_user_test = User('John', 'Doe', 'johndoe',
@@ -96,19 +99,19 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(User.display_user(), User.user_list)
 
-    def test_check_password(self):
-        '''
-        check for password exists
-        '''
-        self.new_user.add_user()
-        new_user_test = User('John', 'Doe', 'johndoe',
-                             '0712000000', 'johndoe@gmail.com', 'johndoe254')
+    # def test_check_password(self):
+    #     '''
+    #     check for password exists
+    #     '''
+    #     self.new_user.add_user()
+    #     new_user_test = User('John', 'Doe', 'johndoe',
+    #                          '0712000000', 'johndoe@gmail.com', 'johndoe254')
 
-        new_user_test.add_user()
+    #     new_user_test.add_user()
 
-        user_exists = User.check_password("johndoe", 'johndoe254')
+    #     user_exists = User.check_password("johndoe", 'johndoe254')
 
-        self.assertTrue(user_exists)
+    #     self.assertTrue(user_exists)
 
 
 class TestAccount(unittest.TestCase):
@@ -160,7 +163,9 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(len(Credi.account_list), 1)
 
     def test_find_account_exist(self):
-
+        '''
+        test to find user account and return
+        '''
         self.new_account.add_account()
         new_account_test = Credi('Instagram', 'malcom', 'gram')
         new_account_test.add_account()

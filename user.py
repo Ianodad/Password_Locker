@@ -1,4 +1,5 @@
 import base64
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class User:
@@ -22,6 +23,9 @@ class User:
         User.user_list.append(self)
 
     def delete_user(self):
+        '''
+        delete user from array
+        '''
 
         User.user_list.remove(self)
 
@@ -44,7 +48,7 @@ class User:
     @classmethod
     def find_username(cls, username):
         '''
-        check its username exist trough 
+        check its username exist through 
         '''
         for user in cls.user_list:
             if user.username == username:
@@ -57,27 +61,37 @@ class User:
         '''
         return cls.user_list
 
+    # @password.setter
+    # def password(self, password):
+    #     self.password = generate_password_hash(password)
+
+    # def verify_password(self, password):
+    #     return check_password_hash(self.password, password)
+
     @classmethod
     def check_password(cls, username, password):
+        '''
+        check user password is its legit
+        '''
 
         for user in cls.user_list:
             if user.username == username and user.password == password:
                 return True
         return False
 
-    @classmethod
-    def encode(cls, username):
-        '''
-        using base64 to encode user password
-        '''
-        for user in cls.user_list:
-            if user.username == username:
-                user.password = base64.b64encode(user.password)
-                return user.password
+    # @classmethod
+    # def encode(cls, username):
+    #     '''
+    #     using base64 to encode user password
+    #     '''
+    #     for user in cls.user_list:
+    #         if user.username == username:
+    #             user.password = base64.b64encode(user.password)
+    #             return user.password
 
-    @classmethod
-    def decode(cls, username):
-        for user in cls.user_list:
-            if user.username == username:
-                user.password = base64.b64decode(user.password)
-                return(user.password)
+    # @classmethod
+    # def decode(cls, username):
+    #     for user in cls.user_list:
+    #         if user.username == username:
+    #             user.password = base64.b64decode(user.password)
+    #             return(user.password)
